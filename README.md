@@ -28,7 +28,7 @@ Additional steps for Ubuntu 24.04:
 
     `# chown -R root:root /usr/local/ADS2025` 
 
-Done. The two `chown` steps may not be required if you invoke the installer as root from a local directory. I used an NFS share where I was too lazy to configure `no_root_squash`. In any case, you can delete the temporary directory now. 
+Done. You can also run `SETUP.SH` as root, but then you may be defaulted to the text-based installer because root may not have access to the graphical desktop. In any case, you can delete the temporary directory when finished. 
 
 Next, copy `ads_start.sh` to a directory in your `PATH`, e.g. `$HOME/bin`, set executable permissions, and edit the shell variables at the top to reflect your installation choices. 
 
