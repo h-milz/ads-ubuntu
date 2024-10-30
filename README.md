@@ -1,12 +1,12 @@
 # Running Keysight ADS2025 on Ubuntu 24.04 LTS
 
-Although Keysight does not officially support ADS on Ubuntu (only [RHEL and SLES](https://docs.keysight.com/display/support/ADS%20Supported%20Platforms)), it is faily easy to install and run ADS2025 on Ubuntu 24.04. 
+Although Keysight does not officially support ADS on Ubuntu (only [RHEL and SLES](https://docs.keysight.com/display/support/ADS%20Supported%20Platforms)), it is fairly easy to install and run ADS2025 on Ubuntu 24.04. 
 
-Most steps are explained on the [Quick Install](https://docs.keysight.com/display/engdocads/ADS+2025+Quick+Install-Linux) page. Installing uses a Java-based installer which appears to run fine on either platform because it brings its own JVM. 
+Most steps are explained on the [Quick Install](https://docs.keysight.com/display/engdocads/ADS+2025+Quick+Install-Linux) page. The installer is Java based and should run fine on either platform because it brings its own JVM. 
 
 Additional steps for Ubuntu 24.04: 
 
-* One requirement for the license manager is "Linux Standard Base (LSB)", meaning that some binaries are linked against `/lib64/ld-lsb-x86-64.so.3` which by default is not available on Ubuntu 24.04. In earlier Ubuntu versions, this shared library was provided by the `lsb-core`  package but the Ubuntu maintainers decided to drop this package for 24.04. Whatever. However, it is easy to build a workaround by symlinking `ld-linux-x86-64.so.2`. As root, do: 
+* One requirement for the license manager is "Linux Standard Base (LSB)", meaning that some binaries are linked against `/lib64/ld-lsb-x86-64.so.3` which by default is not available on Ubuntu 24.04. In earlier Ubuntu versions, this shared library was provided by the `lsb-core`  package but the Ubuntu maintainers decided to drop this package for 24.04. Whatever. However, it is easy to work around this pitfall by symlinking `ld-linux-x86-64.so.2`. As root, do: 
 
     `# cd /lib64 && ln -s ld-linux-x86-64.so.2 ld-lsb-x86-64.so.3`
 
