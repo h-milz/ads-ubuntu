@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Keysight ADS
+GenericName=Keysight ADS
+Icon=/usr/local/ADS2025/doc/cctdoc/cctools/Content/cctools2025/docimages/product_logo.png
+Exec=bin/ads_start.sh
+Terminal=false
+Categories=Development;Science
+StartupNotify=true
