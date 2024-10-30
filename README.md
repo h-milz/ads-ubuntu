@@ -2,33 +2,35 @@
 
 Although Keysight does not officially support ADS on Ubuntu (only [RHEL and SLES](https://docs.keysight.com/display/support/ADS%20Supported%20Platforms)), it is fairly easy to install and run ADS2025 on Ubuntu 24.04. 
 
-Most steps are explained on the [Quick Install](https://docs.keysight.com/display/engdocads/ADS+2025+Quick+Install-Linux) page. The installer is Java based and should run fine on either platform because it brings its own JVM. 
+Most steps are explained on the [Quick Install](https://docs.keysight.com/display/engdocads/ADS+2025+Quick+Install-Linux) page. The following tutorial assumes you downloaded the ADS installer and obtained a valid node locked license file for your machine.  
+
+The installer is Java based and should run fine on either platform because it brings its own JVM. 
 
 Additional steps for Ubuntu 24.04: 
 
-* One requirement for the license manager is "Linux Standard Base (LSB)", meaning that some binaries are linked against `/lib64/ld-lsb-x86-64.so.3` which by default is not available on Ubuntu 24.04. In earlier Ubuntu versions, this shared library was provided by the `lsb-core`  package but the Ubuntu maintainers decided to drop this package for 24.04. Whatever. However, it is easy to work around this pitfall by symlinking `ld-linux-x86-64.so.2`. As root, do: 
+1. One requirement for the license manager is "Linux Standard Base (LSB)", meaning that some binaries are linked against `/lib64/ld-lsb-x86-64.so.3` which by default is not available on Ubuntu 24.04. In earlier Ubuntu versions, this shared library was provided by the `lsb-core`  package but the Ubuntu maintainers decided to drop this package for 24.04. Whatever. However, it is easy to work around this pitfall by symlinking `ld-linux-x86-64.so.2`. As root, do: 
 
     `# cd /lib64 && ln -s ld-linux-x86-64.so.2 ld-lsb-x86-64.so.3`
 
-* Some binaries use `libxcb-ewmh2`, and most of the provided shell scripts are written for Korn shell. Bash won't work due to some ksh'isms. Consequently, 
+2. Some binaries use `libxcb-ewmh2`, and most of the provided shell scripts are written for Korn shell. Bash won't work due to some ksh'isms. Consequently, 
 
     `# apt install libxcb-ewmh2 ksh`
 
-* Finally, create the default installation directory. You can choose any other directory to your liking but you will need to tell the installer in the following step. 
+3. Finally, create the default installation directory. You can choose any other directory to your liking but you will need to tell the installer in the following step. 
 
     `# mkdir /usr/local/ADS2025 && chown $USER:$USER /usr/local/ADS2025`
 
-* Then, as $USER, untar the ads tar archive into a temporary directory and `cd` into that directory. Next, run the installer: 
+4. Then, as $USER, untar the ADS tar archive into a temporary directory and `cd` into that directory. Next, run the installer: 
 
     `$ ./SETUP.SH`
 
-* As root, a final step: 
+5. As root, a final step: 
 
     `# chown -R root:root /usr/local/ADS2025` 
 
 Done. The two `chown` steps may not be required if you invoke the installer as root from a local directory. I used an NFS share where I was too lazy to configure `no_root_squash`. In any case, you can delete the temporary directory now. 
 
-Next, copy `ads.desktop` into a directory in your `PATH`, e.g. `$HOME/bin` and edit the shell variables at the top to reflect your installation choices. 
+Next, copy `ads_start.sh` into a directory in your `PATH`, e.g. `$HOME/bin`, set executable permissions and edit the shell variables at the top to reflect your installation choices. 
 
 Last, put `ads.desktop` into `$HOME/.local/share/applications` to create the menu entry for GNOME. Again, edit the file to adjust the `Exec` and `Icon` paths as required. 
 
@@ -44,6 +46,10 @@ I tested a few functions that I currently work with:
 * Simulate
 
 and all appear to work fine. 
+
+## ADS Updates
+
+In case you want to update ADS to a newer version, all that should be required is installing into the existing directory as demonstrated (i.e., steps #3-#5. 
 
 ## Support
 
