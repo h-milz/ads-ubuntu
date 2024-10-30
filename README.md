@@ -10,7 +10,7 @@ Additional steps for Ubuntu 24.04:
 
     `# cd /lib64 && ln -s ld-linux-x86-64.so.2 ld-lsb-x86-64.so.3`
 
-* some binaries use `libxcb-ewmh2`, and most of the provided shell scripts are written for Korm shell. Bash won't work due to some ksh'isms. Consequently, 
+* Some binaries use `libxcb-ewmh2`, and most of the provided shell scripts are written for Korn shell. Bash won't work due to some ksh'isms. Consequently, 
 
     `# apt install libxcb-ewmh2 ksh`
 
@@ -18,7 +18,7 @@ Additional steps for Ubuntu 24.04:
 
     `# mkdir /usr/local/ADS2025 && chown $USER:$USER /usr/local/ADS2025`
 
-* Then, as $USER, untar the ads tar archive into a temporary directory and cd into that directory. Next, run the installer: 
+* Then, as $USER, untar the ads tar archive into a temporary directory and `cd` into that directory. Next, run the installer: 
 
     `$ ./SETUP.SH`
 
@@ -26,9 +26,11 @@ Additional steps for Ubuntu 24.04:
 
     `# chown -R root:root /usr/local/ADS2025` 
 
-Done. Next, copy `ads.desktop` into a directory in your `PATH`, e.g. `$HOME/bin` and edit the shell variables `HPEESOF_DIR` and `ADS_LICENSE_FILE` to reflect your installation choices. 
+Done. The two `chown` steps may not be required if you invoke the installer as root from a local directory. I used an NFS share where I was too lazy to configure `no_root_squash`. In any case, you can delete the temporary directory now. 
 
-Last, put `ads.desktop` into `.local/share/applications` to create the menu entry for GNOME. Again, edit the file to adjust the `Exec` and `Icon` paths as required. 
+Next, copy `ads.desktop` into a directory in your `PATH`, e.g. `$HOME/bin` and edit the shell variables at the top to reflect your installation choices. 
+
+Last, put `ads.desktop` into `$HOME/.local/share/applications` to create the menu entry for GNOME. Again, edit the file to adjust the `Exec` and `Icon` paths as required. 
 
 That's it. You should now be able to start ADS from your application menu. The program start takes a few moments so be patient. 
 
