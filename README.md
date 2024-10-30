@@ -30,9 +30,9 @@ Additional steps for Ubuntu 24.04:
 
 Done. The two `chown` steps may not be required if you invoke the installer as root from a local directory. I used an NFS share where I was too lazy to configure `no_root_squash`. In any case, you can delete the temporary directory now. 
 
-Next, copy `ads_start.sh` into a directory in your `PATH`, e.g. `$HOME/bin`, set executable permissions and edit the shell variables at the top to reflect your installation choices. 
+Next, copy `ads_start.sh` to a directory in your `PATH`, e.g. `$HOME/bin`, set executable permissions, and edit the shell variables at the top to reflect your installation choices. 
 
-Last, put `ads.desktop` into `$HOME/.local/share/applications` to create the menu entry for GNOME. Again, edit the file to adjust the `Exec` and `Icon` paths as required. 
+Last, copy `ads.desktop` to `$HOME/.local/share/applications` to create the menu entry for GNOME. Again, edit the file to adjust the `Exec` and `Icon` paths as required. 
 
 That's it. You should now be able to start ADS from your application menu. The program start takes a few moments so be patient. 
 
@@ -49,8 +49,15 @@ and all appear to work fine.
 
 ## ADS Updates
 
-In case you want to update ADS to a newer version, all that should be required is installing into the existing directory as demonstrated (i.e., steps #3-#5. 
+In case you want to update ADS to a newer version, all that should be required is installing into the existing directory as demonstrated (i.e., steps #3-#5). 
 
 ## Support
 
-Please note that I can give no support whatsoever for Keysight ADS. In case of questions please contact Keysight support. They will not answer questions concerning Ubuntu 24.04 though - in this specific case feel free to ask.  Please mind that I have no access to any other ADS version, and I have tested the steps above only on Ubuntu 24.04 so please do not ask if any other version is involved. 
+Please note that I can give no support whatsoever for Keysight ADS. In case of questions please contact Keysight support. They will not answer questions concerning Ubuntu 24.04 though - in this specific case feel free to ask.  Please note that I have no access to any other ADS version, and I have tested the steps above only on Ubuntu 24.04 so please do not ask for any other version combination. 
+
+## Copyright and Licensing
+
+The material in this git repository is copyrighted by me and licensed to you by the [GNU General Public License V3](https://www.gnu.org/licenses/gpl-3.0.en.html). Commercial use without written permission is strictly forbidden. If you are interested, feel free to ask for a commercial license. 
+
+
+
