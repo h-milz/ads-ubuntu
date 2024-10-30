@@ -6,7 +6,7 @@ Most steps are explained on the [Quick Install](https://docs.keysight.com/displa
 
 Additional steps for Ubuntu 24.04: 
 
-* One requirement for the license manager is "Linux Standard Base (LSB)", meaning that some binaries are linked against `/lib64/ld-lsb-x86-64.so.3` which by default is not available on Ubuntu 24.04. In earlier Ubuntu versions, this shared library was provided by the `lsb-core`  package but the Ubuntu maintainers decided to drop this package for 24.04. Whatever. However, it is easy to build a workaround by symlinking `ld-linux-x86-64.so.2`:
+* One requirement for the license manager is "Linux Standard Base (LSB)", meaning that some binaries are linked against `/lib64/ld-lsb-x86-64.so.3` which by default is not available on Ubuntu 24.04. In earlier Ubuntu versions, this shared library was provided by the `lsb-core`  package but the Ubuntu maintainers decided to drop this package for 24.04. Whatever. However, it is easy to build a workaround by symlinking `ld-linux-x86-64.so.2`. As root, do: 
 
     `# cd /lib64 && ln -s ld-linux-x86-64.so.2 ld-lsb-x86-64.so.3`
 
@@ -14,16 +14,34 @@ Additional steps for Ubuntu 24.04:
 
     `# apt install libxcb-ewmh2 ksh`
 
-* Finally, create the default installation directory, like
+* Finally, create the default installation directory. You can choose any other directory to your liking but you will need to tell the installer in the following step. 
 
     `# mkdir /usr/local/ADS2025 && chown $USER:$USER /usr/local/ADS2025`
 
+* Then, as $USER, untar the ads tar archive into a temporary directory and cd into that directory. Next, run the installer: 
 
+    `$ ./SETUP.SH`
 
+* As root, a final step: 
 
+    `# chown -R root:root /usr/local/ADS2025` 
 
+Done. Next, copy `ads.desktop` into a directory in your `PATH`, e.g. `$HOME/bin` and edit the shell variables `HPEESOF_DIR` and `ADS_LICENSE_FILE` to reflect your installation choices. 
 
+Last, put `ads.desktop` into `.local/share/applications` to create the menu entry for GNOME. Again, edit the file to adjust the `Exec` and `Icon` paths as required. 
 
+That's it. You should now be able to start ADS from your application menu. The program start takes a few moments so be patient. 
+
+## What works
+
+I tested a few functions that I currently work with: 
+
+* Schematic
+* LineCalc
+* Layout
+* Simulate
+
+and all appear to work fine. 
 
 ## Support
 
