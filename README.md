@@ -1,8 +1,8 @@
 # Running Keysight ADS2025 on Ubuntu 24.04 LTS
 
-Although Keysight does not officially support ADS on Ubuntu (only [RHEL and SLES](https://docs.keysight.com/display/support/ADS%20Supported%20Platforms)), it is fairly easy to install and run ADS2025 on Ubuntu 24.04. 
+Although Keysight does not officially support ADS on Ubuntu (only [RHEL and SLES](https://docs.keysight.com/display/support/ADS%20Supported%20Platforms)), it is fairly easy to install and run ADS2025 on Ubuntu 24.04. The following steps have been tested with ADS2025 and ADS2025 Update 0.1. 
 
-Most steps are explained on the [Quick Install](https://docs.keysight.com/display/engdocads/ADS+2025+Quick+Install-Linux) page. The following tutorial assumes you downloaded the ADS installer and obtained a valid node locked license file for your machine.  
+The basic steps are explained on the [Quick Install](https://docs.keysight.com/display/engdocads/ADS+2025+Quick+Install-Linux) page. The following tutorial assumes you downloaded the ADS installer and obtained a valid node locked license file for your machine.  
 
 The installer is Java based and should run fine on either platform because it brings its own JVM. 
 
@@ -53,7 +53,7 @@ In case you want to update ADS to a newer version, all that should be required i
 
 ## Support
 
-Please note that I can give no support whatsoever for Keysight ADS. In case of questions please contact Keysight support. They will not answer questions concerning Ubuntu 24.04 though - in this specific case feel free to ask.  Please note that I have no access to any other ADS version, and I have tested the steps above only on Ubuntu 24.04 so please do not ask for any other version combination. 
+Please note that I can give no support whatsoever for Keysight ADS. In case of questions please contact Keysight support or turn to any of the ADS fora. Keysight will not answer questions concerning Ubuntu 24.04 though - in this specific case feel free to ask.  Please note that I have no access to any other ADS version, and I have tested the steps above only on Ubuntu 24.04 so please do not ask for any other version combination. 
 
 ## Copyright and Licensing
 
